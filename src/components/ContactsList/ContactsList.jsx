@@ -1,4 +1,4 @@
-import PropTypes, { objectOf } from 'prop-types';
+import PropTypes from 'prop-types';
 import { ContactsListItem } from '../ContactsListItem/ContactsListItem';
 import { ContactList } from './ContactsList.styled';
 export const ContactsList = ({ contacts, handleDeleteClick }) => {
