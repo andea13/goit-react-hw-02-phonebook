@@ -1,7 +1,7 @@
+import PropTypes, { objectOf } from 'prop-types';
 import { ContactsListItem } from '../ContactsListItem/ContactsListItem';
 import { ContactList } from './ContactsList.styled';
 export const ContactsList = ({ contacts, handleDeleteClick }) => {
-  console.log(contacts);
   return (
     <ContactList>
       {contacts.map(({ name, number, id }) => (
@@ -15,4 +15,15 @@ export const ContactsList = ({ contacts, handleDeleteClick }) => {
       ))}
     </ContactList>
   );
+};
+
+ContactsList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      number: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ).isRequired,
+  handleDeleteClick: PropTypes.func.isRequired,
 };

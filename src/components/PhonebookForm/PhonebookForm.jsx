@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form, FormLabel, FormInput, FormButton } from './PhonebookForm.styled';
 
 class PhonebookForm extends Component {
@@ -8,7 +9,6 @@ class PhonebookForm extends Component {
   };
 
   handleChange = event => {
-    console.log(event.target);
     const { name, value } = event.target;
 
     this.setState({
@@ -74,5 +74,9 @@ class PhonebookForm extends Component {
     );
   }
 }
+
+PhonebookForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default PhonebookForm;
