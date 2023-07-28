@@ -8,25 +8,24 @@ class PhonebookForm extends Component {
   };
 
   handleChange = event => {
-    console.log(event.target.value);
-    const { contactName, value } = event.target;
+    console.log(event.target);
+    const { name, value } = event.target;
 
     this.setState({
-      [contactName]: value,
+      [name]: value,
     });
   };
 
   handleSubmit = event => {
-    const { contactName, number } = this.state;
     event.preventDefault();
+    const { contactName, number } = this.state;
 
     if (!contactName.trim() || !number.trim()) {
       alert('Please fill in all the fields');
       return;
     }
-
     this.props.onSubmit({
-      contactName: contactName.trim(),
+      name: contactName.trim(),
       number: number.trim(),
     });
 
@@ -51,7 +50,7 @@ class PhonebookForm extends Component {
             value={contactName}
             onChange={handleChange}
             type="text"
-            name="contact"
+            name="contactName"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required

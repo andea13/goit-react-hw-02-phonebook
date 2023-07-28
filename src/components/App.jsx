@@ -21,18 +21,17 @@ class App extends Component {
     filter: '',
   };
 
-  onSubmit = ({ contacts: { name, number } }) => {
-    console.log(name);
+  onSubmit = contact => {
     const duplicate = this.state.contacts.find(
-      ({ name }) => name.toLowerCase() === name.toLowerCase()
+      item => item.name.toLowerCase() === contact.name.toLowerCase()
     );
     if (duplicate) {
-      alert(`${name} is already in contacts`);
+      alert(`${contact.name} is already in contacts`);
       return;
     }
+
     const newContact = {
-      name,
-      number,
+      ...contact,
       id: nanoid(),
     };
 
